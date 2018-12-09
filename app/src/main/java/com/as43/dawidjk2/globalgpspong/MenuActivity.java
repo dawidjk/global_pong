@@ -24,8 +24,8 @@ public class MenuActivity extends AppCompatActivity {
         final Context context = getApplicationContext();
 
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.bensoundhouse);
-
         mediaPlayer.start();
+
 
         trackBall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +49,13 @@ public class MenuActivity extends AppCompatActivity {
                 Toast.makeText(context, "Sound toggled", Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
+        mediaPlayer.release();
 
     }
 }
