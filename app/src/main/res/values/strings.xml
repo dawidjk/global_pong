@@ -17,4 +17,11 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="toggle_sound">Toggle Sound</string>
+    <string name="sign_in">Sign in</string>
+    <string name="track_ball">Track Ball</string>
+    <string name="user_total_hits_0">User Total Hits: 0</string>
+    <string name="west_coast_score_0">West Coast Score: 0</string>
+    <string name="east_coast_score_0">East Coast Score: 0</string>
+    <string name="global_pong">Global Pong</string>
 </resources>

@@ -63,7 +63,7 @@ public class MenuActivity extends AppCompatActivity {
 
     }
     public class MyView extends View {
-        Paint paint = null;
+        Paint paint;
 
         public MyView(Context context) {
             super(context);
