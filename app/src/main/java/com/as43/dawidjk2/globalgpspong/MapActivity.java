@@ -1,8 +1,13 @@
 package com.as43.dawidjk2.globalgpspong;
 
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.io.IOException;
@@ -32,4 +37,5 @@ public class MapActivity extends AppCompatActivity {
             return;
         }
     }
+
 }

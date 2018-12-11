@@ -15,20 +15,17 @@ import android.graphics.Paint;
 public class MenuActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
+    Boolean musicState = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new MyView(this));
         setContentView(R.layout.activity_menu);
 
         Button trackBall = findViewById(R.id.track);
         Button signin = findViewById(R.id.signin);
         Button toggleSound = findViewById(R.id.sound);
         final Context context = getApplicationContext();
-
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.bensoundhouse);
-        mediaPlayer.start();
 
 
         trackBall.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +47,13 @@ public class MenuActivity extends AppCompatActivity {
         toggleSound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Sound toggled", Toast.LENGTH_SHORT).show();
+                if (musicState) {
+                    musicState = false;
+                    mediaPlayer.pause();
+                } else {
+                    musicState = true;
+                    mediaPlayer.start();
+                }
             }
         });
 
@@ -62,27 +65,11 @@ public class MenuActivity extends AppCompatActivity {
         mediaPlayer.release();
 
     }
-    public class MyView extends View {
-        Paint paint;
 
-        public MyView(Context context) {
-            super(context);
-            paint = new Paint();
-        }
-
-        @Override
-        protected void onDraw(Canvas canvas) {
-            super.onDraw(canvas);
-            int x = getWidth();
-            int y = getHeight();
-            int radius;
-            radius = 100;
-            paint.setStyle(Paint.Style.FILL);
-            paint.setColor(Color.WHITE);
-            canvas.drawPaint(paint);
-            // Use Color.parseColor to define HTML colors
-            paint.setColor(Color.parseColor("#CD5C5C"));
-            canvas.drawCircle(x / 2, y / 2, radius, paint);
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.bensoundhouse);
+        mediaPlayer.start();
     }
 }
