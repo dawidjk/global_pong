@@ -2,6 +2,8 @@ package com.as43.dawidjk2.globalgpspong;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -21,14 +23,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class AnimatedView2 extends android.support.v7.widget.AppCompatImageView{
+public class AnimatedView2 extends android.support.v7.widget.AppCompatImageView {
     private Context mContext;
-    double x = getHeight()/2;
-    double y = getWidth()/2;
-    private int xVelocity = 10;
+    double x = -1;
+    double y = -1;
+    private int xVelocity = 30;
     private Handler h;
     private final int FRAME_RATE = 30;
     private Random random;
+    private int delay = 0;
 
 
     public AnimatedView2(Context context, AttributeSet attrs)  {
@@ -36,7 +39,7 @@ public class AnimatedView2 extends android.support.v7.widget.AppCompatImageView{
         mContext = context;
         h = new Handler();
         random = new Random();
-        xVelocity = random.nextInt(10);
+        delay = random.nextInt(115);
     }
     private Runnable r = new Runnable() {
         @Override
@@ -46,9 +49,18 @@ public class AnimatedView2 extends android.support.v7.widget.AppCompatImageView{
     };
     protected void onDraw(Canvas c) {
         BitmapDrawable ball = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.circle);
-
-
-
+        if (x < 0 && y < 0) {
+            x = getWidth()/2;
+            y=0;
+        }
+        if (delay == 0) {
+            y += xVelocity;
+        } else {
+            delay--;
+        }
+        Paint paint = new Paint();
+        paint.setColor(Color.BLACK);
+        c.drawLine(0, getHeight() - 300, getWidth(), getHeight() - 300, paint);
         c.drawBitmap(ball.getBitmap(), (int) x, (int) y, null);
         h.postDelayed(r, FRAME_RATE);
     }

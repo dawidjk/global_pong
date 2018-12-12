@@ -1,6 +1,7 @@
 package com.as43.dawidjk2.globalgpspong;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -23,6 +24,13 @@ public class MapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_map);
 
         mImageView = findViewById(R.id.mapImage);
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SwingActivity.class);
+                startActivity(intent);
+            }
+        });
 
         try {
             // get input stream
