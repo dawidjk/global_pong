@@ -20,36 +20,37 @@
         />
 
     <TextView
+        android:id="@+id/east_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
         android:text="@string/east_coast_score_0"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_weight="1"
-        android:layout_gravity="center_horizontal"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/west_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
         android:text="@string/west_coast_score_0"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_weight="1"
-        android:layout_gravity="center_horizontal"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="20sp" />
+
     <TextView
+        android:id="@+id/user_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
         android:text="@string/user_total_hits_0"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_weight="1"
-        android:layout_gravity="center_horizontal"
         android:textColor="@color/colorPrimaryDark"
-        />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/track"

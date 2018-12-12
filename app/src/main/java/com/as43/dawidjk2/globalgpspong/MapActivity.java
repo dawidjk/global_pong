@@ -37,5 +37,19 @@ public class MapActivity extends AppCompatActivity {
             return;
         }
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Music.player.stop();
+        Music.player.release();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Music.SoundPlayer(this, R.raw.bensoundhouse);
+        Music.player.start();
+    }
 
 }
