@@ -2,7 +2,6 @@ package com.as43.dawidjk2.globalgpspong;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +13,6 @@ import android.graphics.Paint;
 
 public class MenuActivity extends AppCompatActivity {
 
-    MediaPlayer mediaPlayer;
     Boolean musicState = true;
 
     @Override
@@ -49,10 +47,10 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (musicState) {
                     musicState = false;
-                    mediaPlayer.pause();
+                    Music.player.pause();
                 } else {
                     musicState = true;
-                    mediaPlayer.start();
+                    Music.player.start();
                 }
             }
         });
@@ -61,15 +59,14 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        mediaPlayer.stop();
-        mediaPlayer.release();
+        Music.player.stop();
+        Music.player.release();
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.bensoundhouse);
-        mediaPlayer.start();
+        Music.player.start();
     }
 }
